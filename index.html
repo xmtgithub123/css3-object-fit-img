@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css3 object-fit</title>
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+  <style type="text/css">
+   body{
+    box-sizing: border-box;
+   }
+  @media (min-width: 1200px){
+    .container {
+        width: 1300px;
+    }
+   ul li {
+    margin:20px 0;
+   }
+    .img-wrapper {
+      margin:20px auto;
+   
+    }
+    .c-02 {
+       width: 300px;
+      height: 300px;
+      object-fit:fill;
+      border: 1px solid red;
+    }
+    .c-01 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+    }
+    .c-03 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      object-fit:contain;
+    }
+    .c-04 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      object-fit:cover;
+    }
+    .c-05 {
+      width: 300px;
+      height: 350px;
+      border: 1px solid red;
+      object-fit:none;
+    }
+    .c-06 {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      object-fit:scale-down;
+    }
+  </style>
+</head>
+<body>
+  <div class="img-wrapper container">
+    <h2>CSS3 Object-fit</h2>
+    <a href="http://www.mamicode.com/info-detail-1023259.html">相关的原文链接，点击查看</a>
+    <h3>1.object-fit:fill | contain | cover | none | scale-down </h3>
+    <h4>2.功能简介 ：</h4>
+     <span>在CSS中，替换元素(replaced elements)，如《img》 和 《video》元素一直存在长宽比的控制问题，特别在在响应式设计中，如何在不同设备，不同分辨率下对这些元素的长宽进行响应。例如，您可能想不以图片的正确尺寸，不想扭曲图像，也不想失去图像的长宽比例，让图片占据一定的空间。按照长宽比例调整和缩略图像的画面比挤压和拉伸图像是一个更优雅的解决方案。</span>
+     <ul>
+       <li> fill：此值为boject-fit的默认值，替换内容的大小被设置为填充元素的内容框，也就是说，元素的内容扩大到完全填充容器的外形尺寸，即使这打破其内在的宽高比。</li>
+       <li> contain：替换元素内容大小保持长宽比例填充元素内容容器，其具体对象大小被解析为一个包含元素的宽度和高度。也就是说，如果你在替换元素上设置一个明确的高度和宽度，此值将导致内容大小，完全在固定的比例显示，但仍在元素尺寸内显示。</li>
+       <li>cover：替换元素内容大小保持长宽比例填充元素内容容器，其具体对象大小被解析为覆盖整个元素的宽度和高度。也就是说，替换元素内容大小保持长宽比，但改变宽度和高度，以便完全覆盖内容元素。</li>
+       <li>none ：替换元素内容不调整大小以适应内部元素的容器，内容完全忽略设置在元素上的任何高度和权重，并且仍在元素尺寸内显示。</li>
+       <li>scale-down：当内容大小设置了non或contain，将导致具体对象变得更小。</li>
+     </ul>
+     <span>3.效果示意图：</span>
+     <img src="aa.jpg" alt="">
+    <p>原始图片：</p>
+      <img src="c.jpg" alt="" >
+    <h4>object-fit用法：</h4>
+    <p>HTML结构</p>
+    <pre>
+      <code class="language-html" data-lang="html">
+        <span class="nt">&lt;div&gt;</span>
+            <span>&lt;img src="c.jpg"&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      </code>
+    </pre>
+
+    <p>CSS结构</p>
+    <pre>
+      <code class="language-html" data-lang="html">
+         img {
+          width: 300px;
+          height: 300px;
+          border: 1px solid red;
+        }
+      </code>
+    </pre>
+    <p>效果如下：</p>
+      <img src="c.jpg" alt="" >
+      <img src="c.jpg" alt="" class="c-01">
+
+    <p>CSS结构-fill</p>
+        <pre>
+          <code class="language-html" data-lang="html">
+             img {
+              width: 300px;
+              height: 300px;
+              border: 1px solid red;
+              object-fit:fill;
+            }
+          </code>
+        </pre>
+    <p>fill 效果(图片一直会填充整个替换元素，并且图片按一定的比例对画面进行调整。)</p>
+
+      <img src="c.jpg" alt="" >
+      <img src="c.jpg" alt="" class="c-01">
+      <img src="c.jpg" alt="" class="c-02">
+
+    <p>CSS结构-contain</p>
+        <pre>
+          <code class="language-html" data-lang="html">
+             img {
+              width: 300px;
+              height: 300px;
+              border: 1px solid red;
+              object-fit:contain;
+            }
+          </code>
+        </pre>
+      <p>contain 效果(图片按一定的比例进行画面的调整，会出现图片水平和垂直方向留白现象。极其类似于background-size属性取什为contain时的效果。)</p>
+      <img src="c.jpg" alt="" >
+      <img src="c.jpg" alt="" class="c-01">
+      <img src="c.jpg" alt="" class="c-03">
+
+     <p>CSS结构-cover</p>
+        <pre>
+          <code class="language-html" data-lang="html">
+             img {
+              width: 300px;
+              height: 300px;
+              border: 1px solid red;
+              object-fit:cover;
+            }
+          </code>
+        </pre>
+      <p>cover 效果(图片会一直填充，超出部分会自动截取。极其类似于background-size属性中取值为cover的效果。)</p>
+      <img src="c.jpg" alt="" >
+      <img src="c.jpg" alt="" class="c-01">
+      <img src="c.jpg" alt="" class="c-04">
+
+      <p>CSS结构-none</p>
+        <pre>
+          <code class="language-html" data-lang="html">
+             img {
+              width: 300px;
+              height: 350px;
+              border: 1px solid red;
+              object-fit:none;
+            }
+          </code>
+        </pre>
+        <p>none 效果(当图片尺寸设置的比原始尺寸小时，图片原点不动，超出部分会自动截取；当图片尺寸设置比原始尺寸大时，四周会留白。)</p>
+        <img src="c.jpg" alt="" >
+        <img src="c.jpg" alt="" class="c-01">
+      <img src="c.jpg" alt="" class="c-05">
+
+       <p>CSS结构- scale-down</p>
+        <pre>
+          <code class="language-html" data-lang="html">
+             img {
+              width: 300px;
+              height: 300px;
+              border: 1px solid red;
+              object-fit:scale-down;
+            }
+          </code>
+        </pre>
+        <p>scale-down 效果(有点类似于object-fit取值为contain时效果。)</p>
+        <img src="c.jpg" alt="" >
+        <img src="c.jpg" alt="" class="c-01">
+      <img src="c.jpg" alt="" class="c-06">
+    <br>
+      <img src="b.png" alt="" class="b-1">
+    <!-- <img src="b.jpg" alt="">
+    <img src="c.jpg" alt=""> -->
+  </div>
+</body>
+</html>
